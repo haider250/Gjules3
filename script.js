@@ -138,23 +138,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const chemicalSelect = document.getElementById('chemical-select');
-    const safetyWarningDiv = document.getElementById('safety-warning');
-
-    const safetyWarnings = {
-        'HCl': '<strong>Safety Warning:</strong> Always add acid to water slowly. Wear appropriate personal protective equipment (PPE), including gloves and safety glasses.',
-        'NaOH': '<strong>Safety Warning:</strong> Sodium hydroxide is hygroscopic and can absorb moisture from the air, affecting its mass. It is also highly corrosive. Handle with care and wear PPE.',
-        'H2O2': '<strong>Safety Warning:</strong> Hydrogen peroxide can decompose when exposed to light or heat. Store in a dark, cool place. Avoid contact with skin and eyes.'
+    const chemicalDatabase = {
+        'HCl': {
+            molecularWeight: 36.46,
+            safetyWarning: '<strong>Safety Warning:</strong> Always add acid to water slowly. Wear appropriate personal protective equipment (PPE), including gloves and safety glasses.',
+            properties: {
+                Volatility: 'Concentrated HCl is volatile. Handle in a well-ventilated area or fume hood to avoid inhaling fumes.'
+            }
+        },
+        'NaOH': {
+            molecularWeight: 40.00,
+            safetyWarning: '<strong>Safety Warning:</strong> Highly corrosive. Causes severe skin burns and eye damage. Wear appropriate PPE.',
+            properties: {
+                Hygroscopicity: 'Rapidly absorbs moisture and carbon dioxide from the air. Weigh quickly and store in a tightly sealed container. For accurate concentrations, standardization against a primary standard like KHP is recommended.',
+                Instability: 'Reacts with CO₂ in the air to form sodium carbonate (Na₂CO₃), which can affect the accuracy of solutions.'
+            }
+        },
+        'H2O2': {
+            molecularWeight: 34.01,
+            safetyWarning: '<strong>Safety Warning:</strong> Strong oxidizer. Avoid contact with skin and eyes. Can cause burns.',
+            properties: {
+                Instability: 'Decomposes when exposed to light, heat, or certain metals. Store in a dark, cool, vented container.'
+            }
+        },
+        'CaCl2': {
+            molecularWeight: 110.98,
+            safetyWarning: '<strong>Safety Warning:</strong> Causes serious eye irritation. Avoid breathing dust.',
+            properties: {
+                Hygroscopicity: 'Extremely hygroscopic. Anhydrous form is a common desiccant. Keep container tightly closed and handle quickly.'
+            }
+        },
+        'KMnO4': {
+            molecularWeight: 158.03,
+            safetyWarning: '<strong>Safety Warning:</strong> Strong oxidizer. Contact with other material may cause fire. Harmful if swallowed.',
+            properties: {
+                Instability: 'Decomposes in the presence of light and organic material. Solutions should be stored in dark amber bottles and are not stable long-term. Often requires standardization before use.'
+            }
+        },
+        'AceticAcid': {
+            molecularWeight: 60.05,
+            safetyWarning: '<strong>Safety Warning:</strong> Flammable liquid and vapor. Causes severe skin burns and eye damage.',
+            properties: {
+                Volatility: 'Glacial acetic acid is highly volatile and has a pungent odor. Use in a fume hood.'
+            }
+        }
     };
+
+    const chemicalSelect = document.getElementById('chemical-select');
+    const molecularWeightInput = document.getElementById('molecular-weight');
+    const safetyWarningDiv = document.getElementById('safety-warning');
+    const chemicalPropertiesDiv = document.getElementById('chemical-properties');
 
     if (chemicalSelect) {
         chemicalSelect.addEventListener('change', () => {
-            const selectedChemical = chemicalSelect.value;
-            if (safetyWarnings[selectedChemical]) {
-                safetyWarningDiv.innerHTML = safetyWarnings[selectedChemical];
+            const selectedChemicalKey = chemicalSelect.value;
+            const chemicalData = chemicalDatabase[selectedChemicalKey];
+
+            if (chemicalData) {
+                // Auto-fill molecular weight
+                molecularWeightInput.value = chemicalData.molecularWeight;
+
+                // Display safety warning
+                safetyWarningDiv.innerHTML = chemicalData.safetyWarning;
                 safetyWarningDiv.style.display = 'block';
+
+                // Display chemical properties
+                let propertiesHtml = '';
+                for (const property in chemicalData.properties) {
+                    propertiesHtml += `<h4>${property}</h4><p>${chemicalData.properties[property]}</p>`;
+                }
+                chemicalPropertiesDiv.innerHTML = propertiesHtml;
+                chemicalPropertiesDiv.style.display = 'block';
             } else {
+                // Reset and hide everything if no chemical is selected
+                molecularWeightInput.value = '';
                 safetyWarningDiv.style.display = 'none';
+                chemicalPropertiesDiv.style.display = 'none';
             }
         });
     }

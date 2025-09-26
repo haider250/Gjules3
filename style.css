@@ -96,6 +96,25 @@ button:hover {
     border-radius: 4px;
 }
 
+/* Chemical Properties Info */
+.chemical-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.chemical-info h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.chemical-info p {
+    margin-top: 0;
+}
+
 /* Icons */
 .icon {
     margin-right: 0.5rem;
