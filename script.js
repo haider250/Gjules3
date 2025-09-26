@@ -137,4 +137,25 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('vv-result').textContent = `${vvPercent.toFixed(2)}%`;
         });
     }
+
+    const chemicalSelect = document.getElementById('chemical-select');
+    const safetyWarningDiv = document.getElementById('safety-warning');
+
+    const safetyWarnings = {
+        'HCl': '<strong>Safety Warning:</strong> Always add acid to water slowly. Wear appropriate personal protective equipment (PPE), including gloves and safety glasses.',
+        'NaOH': '<strong>Safety Warning:</strong> Sodium hydroxide is hygroscopic and can absorb moisture from the air, affecting its mass. It is also highly corrosive. Handle with care and wear PPE.',
+        'H2O2': '<strong>Safety Warning:</strong> Hydrogen peroxide can decompose when exposed to light or heat. Store in a dark, cool place. Avoid contact with skin and eyes.'
+    };
+
+    if (chemicalSelect) {
+        chemicalSelect.addEventListener('change', () => {
+            const selectedChemical = chemicalSelect.value;
+            if (safetyWarnings[selectedChemical]) {
+                safetyWarningDiv.innerHTML = safetyWarnings[selectedChemical];
+                safetyWarningDiv.style.display = 'block';
+            } else {
+                safetyWarningDiv.style.display = 'none';
+            }
+        });
+    }
 });

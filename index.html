@@ -21,9 +21,19 @@
                 <input type="number" id="solute-mass" placeholder="e.g., 58.44">
             </div>
             <div class="input-group">
+                <label for="chemical-select">Select a Chemical (Optional):</label>
+                <select id="chemical-select">
+                    <option value="">-- Select a chemical --</option>
+                    <option value="HCl">HCl (Hydrochloric Acid)</option>
+                    <option value="NaOH">NaOH (Sodium Hydroxide)</option>
+                    <option value="H2O2">H₂O₂ (Hydrogen Peroxide)</option>
+                </select>
+            </div>
+            <div class="input-group">
                 <label for="molecular-weight">Molecular Weight (g/mol):</label>
                 <input type="number" id="molecular-weight" placeholder="e.g., 58.44">
             </div>
+            <div id="safety-warning" class="warning" style="display: none;"></div>
             <div class="input-group">
                 <label for="solution-volume">Final Volume of Solution:</label>
                 <div class="input-with-unit">
@@ -86,6 +96,38 @@
                 <h3>Result: <span id="wv-result"></span></h3>
             </div>
         </section>
+        <section id="procedure-guidance">
+            <h2>Procedure Guidance: The Right Way to Make a 1L Solution</h2>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 1: Weigh and Dissolve the Solute</h4>
+                    <p>Accurately weigh your solute and transfer it to a beaker with a smaller amount of solvent (e.g., ~700 mL for a 1L solution). Stir until fully dissolved. Never add solute directly to a full liter of solvent!</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 2: Transfer to a Volumetric Flask</h4>
+                    <p>Carefully pour the dissolved solution into a 1L volumetric flask. Rinse the beaker with a small amount of solvent and add the rinsing to the flask to ensure no solute is lost.</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 3: Dilute to the Mark</h4>
+                    <p>Add solvent to the flask until the bottom of the meniscus reaches the calibration mark on the neck. Use a dropper for the final drops to ensure precision.</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 4: Mix Thoroughly</h4>
+                    <p>Stopper the flask and invert it several times to ensure the solution is homogeneous.</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+        </section>
+
         <section id="vv-calculator">
             <h2>Volume/Volume (v/v) % Calculator</h2>
             <div class="input-group">
