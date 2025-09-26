@@ -41,15 +41,65 @@
         </section>
         <section id="dilution-calculator">
             <h2>Dilution Calculator (M₁V₁ = M₂V₂)</h2>
-            <!-- Content for dilution calculator -->
+            <div class="form-group">
+                <label>Variable to Solve For:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="solve-for" value="m2" checked> M₂ (Final Concentration)</label>
+                    <label><input type="radio" name="solve-for" value="v1"> V₁ (Initial Volume)</label>
+                    <label><input type="radio" name="solve-for" value="m1"> M₁ (Initial Concentration)</label>
+                    <label><input type="radio" name="solve-for" value="v2"> V₂ (Final Volume)</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="m1">Initial Concentration (M₁):</label>
+                <input type="number" id="m1" placeholder="e.g., 14.8">
+            </div>
+            <div class="input-group">
+                <label for="v1">Initial Volume (V₁):</label>
+                <input type="number" id="v1" placeholder="e.g., 10">
+            </div>
+            <div class="input-group">
+                <label for="m2">Final Concentration (M₂):</label>
+                <input type="number" id="m2" placeholder="e.g., 0.10">
+            </div>
+            <div class="input-group">
+                <label for="v2">Final Volume (V₂):</label>
+                <input type="number" id="v2" placeholder="e.g., 1000">
+            </div>
+            <button id="calculate-dilution" class="btn-full-width">Calculate</button>
+            <div class="result">
+                <h3>Result: <span id="dilution-result"></span></h3>
+            </div>
         </section>
         <section id="wv-calculator">
             <h2>Weight/Volume (w/v) % Calculator</h2>
-            <!-- Content for w/v calculator -->
+            <div class="input-group">
+                <label for="solute-mass-wv">Mass of Solute (g):</label>
+                <input type="number" id="solute-mass-wv" placeholder="e.g., 4">
+            </div>
+            <div class="input-group">
+                <label for="solution-volume-wv">Volume of Solution (mL):</label>
+                <input type="number" id="solution-volume-wv" placeholder="e.g., 100">
+            </div>
+            <button id="calculate-wv" class="btn-full-width">Calculate w/v %</button>
+            <div class="result">
+                <h3>Result: <span id="wv-result"></span></h3>
+            </div>
         </section>
         <section id="vv-calculator">
             <h2>Volume/Volume (v/v) % Calculator</h2>
-            <!-- Content for v/v calculator -->
+            <div class="input-group">
+                <label for="solute-volume-vv">Volume of Solute (mL):</label>
+                <input type="number" id="solute-volume-vv" placeholder="e.g., 80">
+            </div>
+            <div class="input-group">
+                <label for="solution-volume-vv">Total Volume of Solution (mL):</label>
+                <input type="number" id="solution-volume-vv" placeholder="e.g., 2000">
+            </div>
+            <button id="calculate-vv" class="btn-full-width">Calculate v/v %</button>
+            <div class="result">
+                <h3>Result: <span id="vv-result"></span></h3>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>
