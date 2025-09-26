@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolutionPrep Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>SolutionPrep Pro</h1>
+    </header>
+    <main>
+        <section id="molarity-calculator">
+            <h2>Molarity Calculator</h2>
+            <div class="input-group">
+                <label for="solute-mass">Mass of Solute (g):</label>
+                <input type="number" id="solute-mass" placeholder="e.g., 58.44">
+            </div>
+            <div class="input-group">
+                <label for="molecular-weight">Molecular Weight (g/mol):</label>
+                <input type="number" id="molecular-weight" placeholder="e.g., 58.44">
+            </div>
+            <div class="input-group">
+                <label for="solution-volume">Final Volume of Solution:</label>
+                <div class="input-with-unit">
+                    <input type="number" id="solution-volume" placeholder="e.g., 1000">
+                    <select id="volume-unit">
+                        <option value="mL">mL</option>
+                        <option value="L">L</option>
+                    </select>
+                </div>
+            </div>
+            <button id="calculate-molarity" class="btn-full-width">Calculate Molarity</button>
+            <div class="result">
+                <h3>Result: <span id="molarity-result"></span></h3>
+            </div>
+        </section>
+        <section id="dilution-calculator">
+            <h2>Dilution Calculator (M₁V₁ = M₂V₂)</h2>
+            <!-- Content for dilution calculator -->
+        </section>
+        <section id="wv-calculator">
+            <h2>Weight/Volume (w/v) % Calculator</h2>
+            <!-- Content for w/v calculator -->
+        </section>
+        <section id="vv-calculator">
+            <h2>Volume/Volume (v/v) % Calculator</h2>
+            <!-- Content for v/v calculator -->
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

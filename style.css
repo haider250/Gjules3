@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Basic Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Color Palette */
+:root {
+    --primary-color: #4285F4;
+    --background-color: #F5F5F5;
+    --accent-color: #FFCA28;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+/* Sections */
+section {
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+button {
+    background-color: var(--accent-color);
+    color: #333;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #f0b400;
+}
+
+.btn-full-width {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Icons */
+.icon {
+    margin-right: 0.5rem;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input, .input-group select {
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.input-group > input, .input-group > .input-with-unit {
+    width: 100%;
+}
+
+.input-with-unit {
+    display: flex;
+}
+
+.input-with-unit input {
+    flex-grow: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-with-unit select {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+}
+
+/* Result Display */
+.result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e3f2fd;
+    border-left: 5px solid var(--primary-color);
+}
