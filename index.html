@@ -12,6 +12,9 @@
 <body>
     <header>
         <h1>SolutionPrep Pro</h1>
+        <div class="search-container">
+            <input type="search" id="search-bar" placeholder="Search for chemicals, procedures, or concepts...">
+        </div>
     </header>
     <main>
         <div class="mode-switcher">
@@ -180,6 +183,22 @@
             <div id="quiz-feedback" class="feedback" style="display: none;"></div>
         </div>
     </section>
+
+        <section id="molality-calculator">
+            <h2>Molality (mol/kg) Calculator</h2>
+            <div class="input-group">
+                <label for="solute-moles-molality">Moles of Solute (mol):</label>
+                <input type="number" id="solute-moles-molality" placeholder="e.g., 0.5">
+            </div>
+            <div class="input-group">
+                <label for="solvent-mass-molality">Mass of Solvent (kg):</label>
+                <input type="number" id="solvent-mass-molality" placeholder="e.g., 1">
+            </div>
+            <button id="calculate-molality" class="btn-full-width">Calculate Molality</button>
+            <div class="result">
+                <h3>Result: <span id="molality-result"></span></h3>
+            </div>
+        </section>
 
     <section id="content-library">
         <h2>Instructional Content Library</h2>

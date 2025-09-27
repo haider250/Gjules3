@@ -282,4 +282,48 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('expert-mode', modeToggle.checked);
         });
     }
+
+    const calculateMolalityBtn = document.getElementById('calculate-molality');
+    if (calculateMolalityBtn) {
+        calculateMolalityBtn.addEventListener('click', () => {
+            const soluteMoles = parseFloat(document.getElementById('solute-moles-molality').value);
+            const solventMass = parseFloat(document.getElementById('solvent-mass-molality').value);
+
+            if (isNaN(soluteMoles) || isNaN(solventMass)) {
+                alert('Please enter valid numbers for moles and mass.');
+                return;
+            }
+
+            if (solventMass <= 0) {
+                alert('Mass of solvent must be a positive value.');
+                return;
+            }
+
+            const molality = soluteMoles / solventMass;
+            document.getElementById('molality-result').textContent = `${molality.toFixed(4)} m`;
+        });
+    }
+
+    const searchBar = document.getElementById('search-bar');
+    if (searchBar) {
+        const searchableSections = document.querySelectorAll('main > section');
+
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            // First, remove highlight from all sections
+            searchableSections.forEach(section => {
+                section.classList.remove('highlight');
+            });
+
+            if (searchTerm.length > 2) { // Only search for terms longer than 2 characters
+                searchableSections.forEach(section => {
+                    const sectionText = section.textContent.toLowerCase();
+                    if (sectionText.includes(searchTerm)) {
+                        section.classList.add('highlight');
+                    }
+                });
+            }
+        });
+    }
 });
