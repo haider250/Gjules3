@@ -275,4 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    const modeToggle = document.getElementById('mode-toggle');
+    if (modeToggle) {
+        modeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('expert-mode', modeToggle.checked);
+        });
+    }
 });
