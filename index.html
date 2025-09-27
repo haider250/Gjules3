@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolutionPrep Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>SolutionPrep Pro</h1>
+        <div class="search-container">
+            <input type="search" id="search-bar" placeholder="Search for chemicals, procedures, or concepts...">
+        </div>
+    </header>
+    <main>
+        <div class="mode-switcher">
+            <span>Guided Mode</span>
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Expert Mode</span>
+        </div>
+        <section id="molarity-calculator">
+            <h2>Molarity Calculator</h2>
+            <div class="input-group">
+                <label for="solute-mass">Mass of Solute (g):</label>
+                <input type="number" id="solute-mass" placeholder="e.g., 58.44">
+            </div>
+            <div class="input-group">
+                <label for="chemical-select">Select a Chemical (Optional):</label>
+                <select id="chemical-select">
+                    <option value="">-- Select a chemical --</option>
+                    <option value="HCl">HCl (Hydrochloric Acid)</option>
+                    <option value="NaOH">NaOH (Sodium Hydroxide)</option>
+                    <option value="H2O2">H₂O₂ (Hydrogen Peroxide)</option>
+                    <option value="CaCl2">CaCl₂ (Calcium Chloride)</option>
+                    <option value="KMnO4">KMnO₄ (Potassium Permanganate)</option>
+                    <option value="AceticAcid">Acetic Acid</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="molecular-weight">Molecular Weight (g/mol):</label>
+                <input type="number" id="molecular-weight" placeholder="e.g., 58.44">
+            </div>
+            <div id="safety-warning" class="warning" style="display: none;"></div>
+            <div id="chemical-properties" class="chemical-info" style="display: none;"></div>
+            <div class="input-group">
+                <label for="solution-volume">Final Volume of Solution:</label>
+                <div class="input-with-unit">
+                    <input type="number" id="solution-volume" placeholder="e.g., 1000">
+                    <select id="volume-unit">
+                        <option value="mL">mL</option>
+                        <option value="L">L</option>
+                    </select>
+                </div>
+            </div>
+            <button id="calculate-molarity" class="btn-full-width">Calculate Molarity</button>
+            <div class="result">
+                <h3>Result: <span id="molarity-result"></span></h3>
+            </div>
+        </section>
+        <section id="dilution-calculator">
+            <h2>Dilution Calculator (M₁V₁ = M₂V₂)</h2>
+            <div class="form-group">
+                <label>Variable to Solve For:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="solve-for" value="m2" checked> M₂ (Final Concentration)</label>
+                    <label><input type="radio" name="solve-for" value="v1"> V₁ (Initial Volume)</label>
+                    <label><input type="radio" name="solve-for" value="m1"> M₁ (Initial Concentration)</label>
+                    <label><input type="radio" name="solve-for" value="v2"> V₂ (Final Volume)</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="m1">Initial Concentration (M₁):</label>
+                <input type="number" id="m1" placeholder="e.g., 14.8">
+            </div>
+            <div class="input-group">
+                <label for="v1">Initial Volume (V₁):</label>
+                <input type="number" id="v1" placeholder="e.g., 10">
+            </div>
+            <div class="input-group">
+                <label for="m2">Final Concentration (M₂):</label>
+                <input type="number" id="m2" placeholder="e.g., 0.10">
+            </div>
+            <div class="input-group">
+                <label for="v2">Final Volume (V₂):</label>
+                <input type="number" id="v2" placeholder="e.g., 1000">
+            </div>
+            <button id="calculate-dilution" class="btn-full-width">Calculate</button>
+            <div class="result">
+                <h3>Result: <span id="dilution-result"></span></h3>
+            </div>
+        </section>
+        <section id="wv-calculator">
+            <h2>Weight/Volume (w/v) % Calculator</h2>
+            <div class="input-group">
+                <label for="solute-mass-wv">Mass of Solute (g):</label>
+                <input type="number" id="solute-mass-wv" placeholder="e.g., 4">
+            </div>
+            <div class="input-group">
+                <label for="solution-volume-wv">Volume of Solution (mL):</label>
+                <input type="number" id="solution-volume-wv" placeholder="e.g., 100">
+            </div>
+            <button id="calculate-wv" class="btn-full-width">Calculate w/v %</button>
+            <div class="result">
+                <h3>Result: <span id="wv-result"></span></h3>
+            </div>
+        </section>
+        <section id="procedure-guidance">
+            <h2>Procedure Guidance: The Right Way to Make a 1L Solution</h2>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 1: Weigh and Dissolve the Solute</h4>
+                    <p>Accurately weigh your solute and transfer it to a beaker with a smaller amount of solvent (e.g., ~700 mL for a 1L solution). Stir until fully dissolved. Never add solute directly to a full liter of solvent!</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 2: Transfer to a Volumetric Flask</h4>
+                    <p>Carefully pour the dissolved solution into a 1L volumetric flask. Rinse the beaker with a small amount of solvent and add the rinsing to the flask to ensure no solute is lost.</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 3: Dilute to the Mark</h4>
+                    <p>Add solvent to the flask until the bottom of the meniscus reaches the calibration mark on the neck. Use a dropper for the final drops to ensure precision.</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+            <div class="procedure-step">
+                <div class="procedure-text">
+                    <h4>Step 4: Mix Thoroughly</h4>
+                    <p>Stopper the flask and invert it several times to ensure the solution is homogeneous.</p>
+                </div>
+                <!-- Placeholder for visual aid -->
+            </div>
+        </section>
+
+        <section id="vv-calculator">
+            <h2>Volume/Volume (v/v) % Calculator</h2>
+            <div class="input-group">
+                <label for="solute-volume-vv">Volume of Solute (mL):</label>
+                <input type="number" id="solute-volume-vv" placeholder="e.g., 80">
+            </div>
+            <div class="input-group">
+                <label for="solution-volume-vv">Total Volume of Solution (mL):</label>
+                <input type="number" id="solution-volume-vv" placeholder="e.g., 2000">
+            </div>
+            <button id="calculate-vv" class="btn-full-width">Calculate v/v %</button>
+            <div class="result">
+                <h3>Result: <span id="vv-result"></span></h3>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unit Conversion Modal -->
+    <div id="unit-conversion-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Unit Conversion Alert!</h3>
+            <p>Molarity is calculated in moles per **liter (L)**. We noticed you entered the volume in milliliters (mL), so we've automatically converted it to liters for you (e.g., 1000 mL = 1.0 L).</p>
+            <p>This is a common source of error, so we wanted to make sure you're aware of the conversion!</p>
+        </div>
+    </div>
+
+    <section id="conceptual-quiz">
+        <h2>Conceptual Quiz</h2>
+        <div class="quiz-question">
+            <p><strong>Question:</strong> When preparing 1.0 L of an aqueous solution, what is the correct first step?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="quiz-answer" value="a"> A) Add the solid solute directly to a 1L volumetric flask, then add water to the 1L mark.</label>
+                <label><input type="radio" name="quiz-answer" value="b"> B) Dissolve the solid solute in a beaker with a smaller volume of water (e.g., ~700 mL) first.</label>
+                <label><input type="radio" name="quiz-answer" value="c"> C) Add exactly 1.0 L of water to a beaker, then add the solid solute.</label>
+            </div>
+            <button id="check-quiz-answer" class="btn-full-width">Check Answer</button>
+            <div id="quiz-feedback" class="feedback" style="display: none;"></div>
+        </div>
+    </section>
+
+        <section id="molality-calculator">
+            <h2>Molality (mol/kg) Calculator</h2>
+            <div class="input-group">
+                <label for="solute-moles-molality">Moles of Solute (mol):</label>
+                <input type="number" id="solute-moles-molality" placeholder="e.g., 0.5">
+            </div>
+            <div class="input-group">
+                <label for="solvent-mass-molality">Mass of Solvent (kg):</label>
+                <input type="number" id="solvent-mass-molality" placeholder="e.g., 1">
+            </div>
+            <button id="calculate-molality" class="btn-full-width">Calculate Molality</button>
+            <div class="result">
+                <h3>Result: <span id="molality-result"></span></h3>
+            </div>
+        </section>
+
+    <section id="content-library">
+        <h2>Instructional Content Library</h2>
+        <div class="library-item">
+            <h4><a href="#">Guide to Primary Standards (KHP)</a></h4>
+            <p>Learn about using potassium hydrogen phthalate (KHP) to accurately standardize basic solutions like NaOH.</p>
+        </div>
+        <div class="library-item">
+            <h4><a href="#">Glassware Cleaning & Calibration</a></h4>
+            <p>Protocols for ensuring your glassware is clean, dry, and calibrated for accurate measurements.</p>
+        </div>
+        <div class="library-item">
+            <h4><a href="#">Buffer Preparation Guide</a></h4>
+            <p>A step-by-step guide to preparing common laboratory buffers.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
