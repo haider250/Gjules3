@@ -148,6 +148,47 @@
             </div>
         </section>
     </main>
+
+    <!-- Unit Conversion Modal -->
+    <div id="unit-conversion-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Unit Conversion Alert!</h3>
+            <p>Molarity is calculated in moles per **liter (L)**. We noticed you entered the volume in milliliters (mL), so we've automatically converted it to liters for you (e.g., 1000 mL = 1.0 L).</p>
+            <p>This is a common source of error, so we wanted to make sure you're aware of the conversion!</p>
+        </div>
+    </div>
+
+    <section id="conceptual-quiz">
+        <h2>Conceptual Quiz</h2>
+        <div class="quiz-question">
+            <p><strong>Question:</strong> When preparing 1.0 L of an aqueous solution, what is the correct first step?</p>
+            <div class="quiz-options">
+                <label><input type="radio" name="quiz-answer" value="a"> A) Add the solid solute directly to a 1L volumetric flask, then add water to the 1L mark.</label>
+                <label><input type="radio" name="quiz-answer" value="b"> B) Dissolve the solid solute in a beaker with a smaller volume of water (e.g., ~700 mL) first.</label>
+                <label><input type="radio" name="quiz-answer" value="c"> C) Add exactly 1.0 L of water to a beaker, then add the solid solute.</label>
+            </div>
+            <button id="check-quiz-answer" class="btn-full-width">Check Answer</button>
+            <div id="quiz-feedback" class="feedback" style="display: none;"></div>
+        </div>
+    </section>
+
+    <section id="content-library">
+        <h2>Instructional Content Library</h2>
+        <div class="library-item">
+            <h4><a href="#">Guide to Primary Standards (KHP)</a></h4>
+            <p>Learn about using potassium hydrogen phthalate (KHP) to accurately standardize basic solutions like NaOH.</p>
+        </div>
+        <div class="library-item">
+            <h4><a href="#">Glassware Cleaning & Calibration</a></h4>
+            <p>Protocols for ensuring your glassware is clean, dry, and calibrated for accurate measurements.</p>
+        </div>
+        <div class="library-item">
+            <h4><a href="#">Buffer Preparation Guide</a></h4>
+            <p>A step-by-step guide to preparing common laboratory buffers.</p>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
